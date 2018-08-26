@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="M-MVP Init"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a new Dagger type App with empty activity">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutName)}"
+        default="SplashActivity"
+        help="The name of the activity class to create" />
+
+    <parameter
+        id="generateLayout"
+        name="Generate Layout File"
+        type="boolean"
+        default="true"
+        help="If true, a layout file will be generated" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_splash"
+        visibility="generateLayout"
+        help="The name of the layout to create for the activity" />
+		
+	<parameter
+		id="applicationClass"
+		name="Application Class Name"
+		type="string"
+		constraints="class|unique|nonempty"
+		default="MyApplication"
+		help="The name of your custom Application class" />
+		
+	<parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+    
+    <parameter
+        id="moduleName"
+        name="Module name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="ui.common" />
+
+     <parameter
+        id="presenterClass"
+        name="Presenter Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="SplashPresenter"
+        suggest="${underscoreToCamelCase(classToResource(activityClass))}Presenter"
+        help="The name of the Presenter to create" />
+
+    <parameter
+        id="contractClass"
+        name="Contract Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="SplashContract"
+        suggest="${underscoreToCamelCase(classToResource(activityClass))}Contract"
+        help="The name of the Contract to create" />
+		
+	<parameter
+		id="eventbus"
+		name="Use Event Bus"
+		type="boolean"
+		visibility="true"
+		default="false"
+		help="Mark this if you want to use EventBus in your App"/>
+		
+	<parameter
+		id="retrofit"
+		name="Use retrofit"
+		visibility="false"
+		type="boolean"
+		default="true"
+		help="Mark this if you want to use Retrofit in your project"/>
+	
+	<parameter
+        id="butterknife"
+        name="Use Butterknife"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use butterknife to inject"/>
+
+    <parameter
+        id="glide"
+        name="Use Glide"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use glide to load image"/>
+
+    <parameter
+        id="photoView"
+        name="Use PhotoView"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use to show image view"/>
+
+    <parameter
+        id="picasso"
+        name="Use Picasso"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use picasso to deal with iamge"/>
+
+    <parameter
+        id="fresco"
+        name="Use Picasso"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use fresco to deal with iamge"/>
+    
+     <parameter
+        id="animatedGif"
+        name="Use AnimatedGif"
+        visibility="true"
+        type="boolean"
+        default="false"
+        help="Use animatedGif to deal with gif"/>
+
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+    
+    
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_m_mvp_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+    
+    
+    <execute file="library_annotation_recipe.xml.ftl" />
+    
+    <execute file="library_compiler_recipe.xml.ftl" />
+
+</template>
