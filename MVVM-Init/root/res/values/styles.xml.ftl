@@ -8,6 +8,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowAnimationStyle">@style/CustomBottomDialogFragmentAnimation</item>
     </style>
+    
     <style name="CustomBottomDialogFragmentAnimation" parent="@android:style/Animation.Dialog">
         <item name="android:windowEnterAnimation">@anim/anim_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/anim_bottom_out</item>

@@ -2,6 +2,9 @@
 <recipe>
 	<merge from="root/res/AndroidManifest.xml.ftl"
              to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+    
+    <merge from="root/res/values/styles.xml.ftl" 
+    		 to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
              
 	<mkdir at="${escapeXmlAttribute(resOut)}/anim" />
              
@@ -165,6 +168,5 @@
 	
 	<merge from="root/src/build.gradle.ftl" to="${projectOut}/build.gradle" />
 	
-	<merge from="root/res/values/styles.xml.ftl" to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
 
 </recipe>
