@@ -3,6 +3,8 @@
 	<merge from="root/res/AndroidManifest.xml.ftl"
              to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
              
+	<mkdir at="${escapeXmlAttribute(resOut)}/anim" />
+             
     <merge from="root/res/anim/anim_bottom_in.xml.ftl"
              to="${escapeXmlAttribute(resOut)}/anim/anim_bottom_in.xml" />
              
@@ -38,80 +40,131 @@
     <mkdir at="${escapeXmlAttribute(srcOut)}/widget" />
 
 <#if generateLayout>
-    <instantiate from="root/res/layout/simple.xml.ftl"
+    <instantiate from="root/res/layout/activity_simple.xml.ftl"
                  	to="${escapeXmlAttribute(resOut)}/layout/${simpleLayoutName}.xml" />
 </#if>
 
-	<instantiate from="root/src/app_package/App.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/${applicationClass}.java" />
+	<instantiate from="root/src/app_package/App.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/App.kt" />
                    
-	<instantiate from="root/src/app_package/base/BaseActivity.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/base/BaseActivity.java" />
+	<instantiate from="root/src/app_package/api/APIException.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/api/APIException.kt" />
 
-    <instantiate from="root/src/app_package/base/BaseAdapter.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/base/BaseAdapter.java" />
+    <instantiate from="root/src/app_package/api/APIService.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/api/APIService.kt" />
 
-    <instantiate from="root/src/app_package/base/BaseFragment.java.ftl"
-      			   to="${escapeXmlAttribute(srcOut)}/base/BaseFragment.java" />
+    <instantiate from="root/src/app_package/api/NullStringToEmptyAdapterFactory.kt.ftl"
+      			   to="${escapeXmlAttribute(srcOut)}/api/NullStringToEmptyAdapterFactory.kt" />
 
-    <instantiate from="root/src/app_package/base/BasePresenter.java.ftl"
-      			   to="${escapeXmlAttribute(srcOut)}/base/BasePresenter.java" />
+    <instantiate from="root/src/app_package/api/StringAdapter.kt.ftl"
+      			   to="${escapeXmlAttribute(srcOut)}/api/StringAdapter.kt" />
 
-    <instantiate from="root/src/app_package/base/BaseView.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/base/BaseView.java" />
+    <instantiate from="root/src/app_package/base/BaseActivity.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseActivity.kt" />
 
-    <instantiate from="root/src/app_package/base/BindingViewHolder.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/base/BindingViewHolder.java" />
+    <instantiate from="root/src/app_package/base/BaseAdapterViewModel.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseAdapterViewModel.kt" />
 
-    <instantiate from="root/src/app_package/base/DataBindingActivity.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/base/DataBindingActivity.java" />
+    <instantiate from="root/src/app_package/base/BaseBottomFragment.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseBottomFragment.kt" />
 
-    <instantiate from="root/src/app_package/base/DataBindingFragment.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/base/DataBindingFragment.java" /> 
+    <instantiate from="root/src/app_package/base/BaseFragment.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseFragment.kt" /> 
        			   
-    <instantiate from="root/src/app_package/gson/NullStringToEmptyAdapterFactory.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/network/gson/NullStringToEmptyAdapterFactory.java" /> 
+    <instantiate from="root/src/app_package/base/BaseRepository.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseRepository.kt" /> 
     
-    <instantiate from="root/src/app_package/gson/StringAdapter.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/network/gson/StringAdapter.java" /> 
+    <instantiate from="root/src/app_package/base/BaseViewModel.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/BaseViewModel.kt" /> 
+       			   
+    <instantiate from="root/src/app_package/base/adapter/BaseAdapterItem.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/adapter/BaseAdapterItem.kt" /> 
+       			   
+    <instantiate from="root/src/app_package/base/adapter/BaseMultiTypeRecyclerAdapter.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/adapter/BaseMultiTypeRecyclerAdapter.kt" /> 
+      
+    <instantiate from="root/src/app_package/base/adapter/BaseRecyclerAdapter.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/adapter/BaseRecyclerAdapter.kt" /> 
+       
+    <instantiate from="root/src/app_package/base/adapter/RecyclerViewHolder.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/base/adapter/RecyclerViewHolder.kt" /> 
     
-    <instantiate from="root/src/app_package/network/HttpService.java.ftl"
-       			   to="${escapeXmlAttribute(srcOut)}/network/HttpService.java" /> 
+    <instantiate from="root/src/app_package/di/component/AppComponent.kt.ftl"
+       			   to="${escapeXmlAttribute(srcOut)}/di/component/AppComponent.kt" /> 
 
-    <instantiate from="root/src/app_package/network/BaseSubscriber.java.ftl"
-               to="${escapeXmlAttribute(srcOut)}/network/BaseSubscriber.java" /> 
+    <instantiate from="root/src/app_package/di/module/AppModule.kt.ftl"
+               	   to="${escapeXmlAttribute(srcOut)}/di/module/AppModule.kt" /> 
 
-    <instantiate from="root/src/app_package/network/RxException.java.ftl"
-               to="${escapeXmlAttribute(srcOut)}/network/RxException.java" /> 
+    <instantiate from="root/src/app_package/di/module/BuilderModule.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/module/BuilderModule.kt" /> 
 
-    <instantiate from="root/src/app_package/utils/LogUtil.java.ftl"
-               to="${escapeXmlAttribute(srcOut)}/utils/LogUtil.java" /> 
+    <instantiate from="root/src/app_package/di/module/NetworkModule.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/module/NetworkModule.kt" /> 
 
-    <instantiate from="root/src/app_package/utils/SharedPreferencesUtil.java.ftl"
-               to="${escapeXmlAttribute(srcOut)}/utils/SharedPreferencesUtil.java" /> 
+    <instantiate from="root/src/app_package/di/module/ViewModelModule.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/module/ViewModelModule.kt" /> 
 
-	<instantiate from="root/src/app_package/SimpleActivity.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/view/${activityClass}.java" />
+    <instantiate from="root/src/app_package/di/scope/PerActivity.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/scope/PerActivity.kt" /> 
 
-    <open file="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/view/${activityClass}.java" />
+    <instantiate from="root/src/app_package/di/DaggerViewModelFactory.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/DaggerViewModelFactory.kt" /> 
+                   
+    <instantiate from="root/src/app_package/di/ViewModelKey.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/di/ViewModelKey.kt" /> 
+                   
+    <instantiate from="root/src/app_package/extension/AnimationEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/AnimationEx.kt" /> 
+                                      
+    <instantiate from="root/src/app_package/extension/ContextEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/ContextEx.kt" /> 
+                  
+    <instantiate from="root/src/app_package/extension/EdittextEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/EditextEx.kt" />
 
-    <instantiate from="root/src/app_package/SimpleContract.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/contract/${contractClass}.java" />
+    <instantiate from="root/src/app_package/extension/ImageViewEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/ImageViewEx.kt" />
+                   
+    <instantiate from="root/src/app_package/extension/RecyclerViewEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/RecyclerViewEx.kt" />
 
-    <open file="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/contract/${contractClass}.java" />
+    <instantiate from="root/src/app_package/extension/SchedulersEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/SchedulersEx.kt" />
 
-    <instantiate from="root/src/app_package/SimplePresenter.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/presenter/${presenterClass}.java" />
+    <instantiate from="root/src/app_package/extension/SharePreferencesEx.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/extension/SharePreferencesEx.kt" />
 
-    <open file="${escapeXmlAttribute(srcOut)}/${slashedPackageName(moduleName)}/presenter/${presenterClass}.java" />
-	
-	<instantiate from="root/src/app_package/MVPReadMe.txt.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/MVPReadMe.txt" />
-				   
-	<open file="${escapeXmlAttribute(srcOut)}/MVPReadMe.txt" />
+    <instantiate from="root/src/app_package/model/Response.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/model/Response.kt" />
+
+    <instantiate from="root/src/app_package/vo/NetworkBoundResource.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/vo/NetworkBoundResource.kt" />
+
+    <instantiate from="root/src/app_package/vo/ViewModelTypeResolver.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/vo/ViewModelTypeResolver.kt" />
+                   
+	<instantiate from="root/src/app_package/SimpleActivity.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/ui/${slashedPackageName(moduleName)}/${activityClass}.kt" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/ui/${slashedPackageName(moduleName)}/${activityClass}.kt" />
+
+    <instantiate from="root/src/app_package/SimpleViewModel.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/ui/${slashedPackageName(moduleName)}/${viewModelClass}.kt" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/ui/${slashedPackageName(moduleName)}/${viewModelClass}.kt" />
+
+    <instantiate from="root/src/app_package/SimpleRepository.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/repository/${slashedPackageName(moduleName)}/${repositoryClass}.kt" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/repository/${slashedPackageName(moduleName)}/${repositoryClass}.kt" />
+    
+    <instantiate from="root/src/versions.gradle.ftl"
+     			   to="${topOut}/versions.gradle" />
+    
+    <merge from="root/build.gradle.ftl" to="${topOut}/build.gradle" />
 	
 	<merge from="root/src/build.gradle.ftl" to="${projectOut}/build.gradle" />
 	
-	<merge from="root/build_apt.gradle.ftl" to="${topOut}/build.gradle" />
+	<merge from="root/res/values/styles.xml.ftl" to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
 
 </recipe>

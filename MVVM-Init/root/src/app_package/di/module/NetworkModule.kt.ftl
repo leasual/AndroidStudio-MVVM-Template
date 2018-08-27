@@ -3,10 +3,10 @@ package ${packageName}.di.module
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.wesoft.mvvmachitecture.App
-import com.wesoft.mvvmachitecture.BuildConfig
-import com.wesoft.mvvmachitecture.api.APIService
-import com.wesoft.mvvmachitecture.api.NullStringToEmptyAdapterFactory
+import ${packageName}.App
+import ${packageName}.BuildConfig
+import ${packageName}.api.APIService
+import ${packageName}.api.NullStringToEmptyAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

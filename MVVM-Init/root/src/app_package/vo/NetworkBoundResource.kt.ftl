@@ -1,13 +1,13 @@
 package ${packageName}.vo
 
 import android.util.Log
-import com.wesoft.mvvmachitecture.App
-import com.wesoft.mvvmachitecture.api.APIException
-import com.wesoft.mvvmachitecture.extension.isNetworkAvailable
-import com.wesoft.mvvmachitecture.extension.toast
-import com.wesoft.mvvmachitecture.model.BaseResponse
-import com.wesoft.mvvmachitecture.model.filterData
-import com.wesoft.mvvmachitecture.extension.ioMain
+import ${packageName}.App
+import ${packageName}.api.APIException
+import ${packageName}.extension.isNetworkAvailable
+import ${packageName}.extension.toast
+import ${packageName}.model.BaseResponse
+import ${packageName}.model.filterData
+import ${packageName}.extension.ioMain
 import io.reactivex.Flowable
 import retrofit2.HttpException
 
@@ -38,19 +38,18 @@ abstract class NetworkBoundResource<ResultType, RequestType>(val app: App) {
                         when (throwable) {
                             is HttpException -> {
                                 if (throwable.response().code() == 404) {
-                                    app.applicationContext.toast("服务器地址不存在")
+                                    //app.applicationContext.toast("")
                                 } else {
-                                    app.applicationContext.toast("网络不给力，请重试")
+                                    //app.applicationContext.toast("")
                                 }
                             }
                             is APIException -> {
-                                app.applicationContext.toast(throwable.info)
+                                //app.applicationContext.toast(throwable.info)
                             }
                             else -> {
-                                app.applicationContext.toast("数据异常，请重试")
+                                //app.applicationContext.toast("")
                             }
-                        }
-                        Log.d("test", "error return= ${throwable.printStackTrace()}")
+                        }                       
                         Flowable.empty()
                     }
         }.flatMap { Flowable.just(it.data as ResultType) }
@@ -61,7 +60,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(val app: App) {
         when (networkState) {
             true -> result = shouldFetch(null).let { networkFlowable } ?: diskFlowable
             else -> {
-                app.applicationContext.toast("网络未连接，请检查网络再重试")
+                //app.applicationContext.toast("")
                 result = Flowable.empty()
             }
         }

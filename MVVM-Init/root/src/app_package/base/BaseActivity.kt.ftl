@@ -9,8 +9,8 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.wesoft.mvvmachitecture.extension.PreferencesUtil
-import com.wesoft.mvvmachitecture.vo.ViewModelTypeResolver
+import ${packageName}.extension.PreferencesUtil
+import ${packageName}.vo.ViewModelTypeResolver
 import dagger.android.AndroidInjection
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector

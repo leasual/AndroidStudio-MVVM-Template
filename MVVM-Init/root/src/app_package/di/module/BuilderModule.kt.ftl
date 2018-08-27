@@ -2,6 +2,7 @@ package ${packageName}.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import ${packageName}.ui.${moduleName}.${activityClass}
 
 /**
  * Created by james.li on 2018/8/21.
@@ -10,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class BuilderModule {
 
     // support fragment injection
-    //@ContributesAndroidInjector(modules = arrayOf(MainModule::class))
-    //internal abstract fun mainActivity(): MainActivity
+    @ContributesAndroidInjector
+    internal abstract fun mainActivity(): ${activityClass}
 }

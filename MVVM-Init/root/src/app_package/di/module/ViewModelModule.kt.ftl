@@ -2,8 +2,9 @@ package ${packageName}.di.module
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.wesoft.mvvmachitecture.di.DaggerViewModelFactory
-import com.wesoft.mvvmachitecture.di.ViewModelKey
+import ${packageName}.di.DaggerViewModelFactory
+import ${packageName}.di.ViewModelKey
+import ${packageName}.ui.main.${viewModelClass}
 
 import dagger.Binds
 import dagger.Module
@@ -15,10 +16,10 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
 
-    //@Binds
-    //@IntoMap
-    //@ViewModelKey(MainViewModel::class)
-    //abstract fun bindsMainViewModel(mainViewModel: MainViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(${viewModelClass}::class)
+    abstract fun bindsMainViewModel(viewModel: ${viewModelClass}): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory

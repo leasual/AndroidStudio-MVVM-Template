@@ -2,7 +2,7 @@ package ${packageName}.model
 
 import android.util.Log
 import com.google.gson.annotations.SerializedName
-import com.wesoft.mvvmachitecture.api.APIException
+import ${packageName}.api.APIException
 import io.reactivex.Flowable
 
 /**

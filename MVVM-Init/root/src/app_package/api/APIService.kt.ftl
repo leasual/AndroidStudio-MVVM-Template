@@ -1,7 +1,6 @@
 package ${packageName}.api
 
-import com.wesoft.mvvmachitecture.model.BaseResponse
-import com.wesoft.mvvmachitecture.model.CategoryBean
+import ${packageName}.model.BaseResponse
 import io.reactivex.Flowable
 import retrofit2.http.GET
 
@@ -11,6 +10,6 @@ import retrofit2.http.GET
 
 interface APIService {
 
-    @GET("xiandu/categories")
-    fun getToday(): Flowable<BaseResponse<MutableList<CategoryBean>>>
+    //@GET("xiandu/categories")
+    //fun getToday(): Flowable<BaseResponse<MutableList<CategoryBean>>>
 }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.DialogFragment
 import android.view.*
-import com.wesoft.mvvmachitecture.R
+import ${packageName}.R
 
 /**
  * Created by james.li on 2018/8/21.
@@ -21,7 +21,6 @@ abstract class BaseBottomFragment<T : ViewDataBinding> : DialogFragment() {
         dialog.setContentView(getLayoutId())
         dialog.setCanceledOnTouchOutside(true)
 
-        // 设置弹出框布局参数，宽度铺满全屏，底部。
         val window = dialog.window
         val wlp = window!!.attributes
         wlp.gravity = Gravity.BOTTOM

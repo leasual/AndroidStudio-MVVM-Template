@@ -11,8 +11,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.wesoft.mvvmachitecture.extension.PreferencesUtil
-import com.wesoft.mvvmachitecture.vo.ViewModelTypeResolver
+import ${packageName}.extension.PreferencesUtil
+import ${packageName}.vo.ViewModelTypeResolver
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

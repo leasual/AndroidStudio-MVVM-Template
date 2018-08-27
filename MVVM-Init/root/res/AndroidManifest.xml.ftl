@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <application android:name=".${applicationClass}">
-        <activity android:name=".${moduleName}.view.${activityClass}"
+    <application android:name=".App">
+        <activity android:name=".ui.${moduleName}.${activityClass}"
             <#if hasNoActionBar>
                 android:theme="@style/${themeNameNoActionBar}"
             </#if>

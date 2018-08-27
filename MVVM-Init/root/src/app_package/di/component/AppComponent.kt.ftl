@@ -1,10 +1,10 @@
 package ${packageName}.di.component
 
-import com.wesoft.mvvmachitecture.App
-import com.wesoft.mvvmachitecture.di.module.AppModule
-import com.wesoft.mvvmachitecture.di.module.BuilderModule
-import com.wesoft.mvvmachitecture.di.module.NetworkModule
-import com.wesoft.mvvmachitecture.di.module.ViewModelModule
+import ${packageName}.App
+import ${packageName}.di.module.AppModule
+import ${packageName}.di.module.BuilderModule
+import ${packageName}.di.module.NetworkModule
+import ${packageName}.di.module.ViewModelModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

@@ -1,6 +1,6 @@
 package ${packageName}.base
 
-import com.wesoft.mvvmachitecture.api.APIService
+import ${packageName}.api.APIService
 import javax.inject.Inject
 
 /**

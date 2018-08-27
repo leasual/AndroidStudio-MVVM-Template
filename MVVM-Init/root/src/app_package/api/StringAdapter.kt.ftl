@@ -9,7 +9,6 @@ import java.io.IOException
 
 /**
  * Created by james.li on 2018/8/21.
- * 处理json串中属性值为null转换为""
  */
 class StringAdapter : TypeAdapter<String>() {
 

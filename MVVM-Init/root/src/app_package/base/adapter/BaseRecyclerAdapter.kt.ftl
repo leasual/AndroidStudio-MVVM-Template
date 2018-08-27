@@ -7,8 +7,8 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.wesoft.mvvmachitecture.base.BaseAdapterViewModel
-import com.wesoft.mvvmachitecture.vo.ViewModelTypeResolver
+import ${packageName}.base.BaseAdapterViewModel
+import ${packageName}.vo.ViewModelTypeResolver
 
 /**
  * Created by james on 2018/8/24.

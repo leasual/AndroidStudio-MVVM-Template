@@ -2,8 +2,8 @@ package ${packageName}.di.module
 
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.wesoft.mvvmachitecture.App
-import com.wesoft.mvvmachitecture.extension.PreferencesUtil
+import ${packageName}.App
+import ${packageName}.extension.PreferencesUtil
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
