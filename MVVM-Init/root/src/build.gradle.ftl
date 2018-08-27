@@ -1,15 +1,12 @@
-apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
+	compileSdkVersion 27
     defaultConfig {
-        applicationId "com.wesoft.mvvmachitecture"
-        minSdkVersion build_versions.min_sdk
-        targetSdkVersion build_versions.target_sdk
+    	targetSdkVersion 27
         versionCode 1000
         versionName "1.0.0"
-        buildConfigField "String","BASE_URL","\"https://gank.io/api/\""
+        buildConfigField("String", "BASE_URL", "\"https://gank.io/api/\"")
         multiDexEnabled true
     }
     dataBinding {
@@ -56,7 +53,7 @@ android {
             def requested = details.requested
             if (requested.group == 'com.android.support') {
                 if (!requested.name.startsWith("multidex")) {
-                    details.useVersion build_versions.support_version
+                    details.useVersion support
                 }
             }
         }
@@ -66,47 +63,45 @@ android {
 android.applicationVariants.all { variant ->
     def appName
     if (project.hasProperty("applicationName")) {
-        appName = applicationName
+        appName	=	applicationName
     } else {
-        appName = parent.name
+        appName	=	parent.name
     }
-    appName = appName + "V" + variant.versionName + "(" + variant.versionCode + ")" + variant.flavorName + ".apk"
+    appName	= appName + "V" + variant.versionName + "(" + variant.versionCode + ")" + variant.flavorName + ".apk"
     variant.outputs.all {
-        outputFileName = appName
+        outputFileName	=	appName
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    ///kotlin
-    implementation deps.kotlin.stdlib
-    //support
-    implementation deps.support.app_compat
-    implementation deps.support.recyclerview
+    implementation	"com.android.support:appcompat-v7:$support"
+    implementation	"com.android.support:recyclerview-v7:$support"
     //dagger
-    implementation deps.dagger.runtime
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
+    implementation	"com.google.dagger:dagger:$dagger"
+    implementation	"com.google.dagger:dagger-android:$dagger"
+    implementation	"com.google.dagger:dagger-android-support:$dagger"
     //layout
-    implementation deps.constraint_layout
+    implementation	"com.android.support.constraint:constraint-layout:$constraint_layout"
     //life cycle
-    implementation deps.lifecycle.runtime
-    implementation deps.lifecycle.extensions
-    implementation deps.lifecycle.java8
+    implementation	"android.arch.lifecycle:runtime:$lifecycle"
+    implementation	"android.arch.lifecycle:extensions:$lifecycle"
+    implementation	"android.arch.lifecycle:common-java8:$lifecycle"
     //retrofit
-    implementation deps.retrofit.runtime
-    implementation deps.retrofit.gson
-    implementation deps.retrofit.adapter
-    implementation deps.okhttp_logging_interceptor
+    implementation	"com.squareup.retrofit2:retrofit:$retrofit"
+    implementation	"com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation	"com.squareup.retrofit2:retrofit-mock:$retrofit"
+    implementation	"com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation	"com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor"
     //rxjava
-    implementation deps.rxjava.runtime
-    implementation deps.rxjava.rxandroid
+    implementation	"io.reactivex.rxjava2:rxjava:$rxjava2"
+    implementation	"io.reactivex.rxjava2:rxandroid:$rx_android"
     //glide
-    implementation deps.glide.runtime
+    implementation	"com.github.bumptech.glide:glide:$glide"
     //kpt
-    kapt deps.dagger.android_support_compiler
-    kapt deps.dagger.compiler
-    kapt deps.lifecycle.compiler
-    kapt deps.databinding
-    kapt deps.glide.compiler
+    kapt	"com.google.dagger:dagger-compiler:$dagger"
+    kapt	"com.google.dagger:dagger-android-processor:$dagger"
+    kapt	"android.arch.lifecycle:compiler:$lifecycle"
+    kapt	"com.android.databinding:compiler:$databinding"
+    kapt	"com.github.bumptech.glide:compiler:$glide"
 }
+
