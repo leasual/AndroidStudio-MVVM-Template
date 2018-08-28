@@ -1,5 +1,4 @@
 buildscript {
-ext.kotlin_version = '1.2.20'
     ext.lifecycle = "1.1.1"
     ext.rxjava2 = "2.1.3"
     ext.rx_android = "2.0.1"
