@@ -1,0 +1,38 @@
+package com.mvvm.javademo.extension
+
+import android.content.Context
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
+
+/**
+ * Created by james on 2018/8/24.
+ */
+
+enum class Display {
+    HORIZONTAL, VERTICAL
+}
+
+fun RecyclerView.bindLinearLayout(context: Context, adapter: RecyclerView.Adapter<*>, display: Display = Display.VERTICAL) {
+    if (display == Display.VERTICAL) {
+        this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    } else {
+        this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+    this.adapter = adapter
+}
+
+fun RecyclerView.bindGridLayout(context: Context, adapter: RecyclerView.Adapter<*>, spanCount: Int = 2) {
+    this.layoutManager = GridLayoutManager(context, spanCount)
+    this.adapter = adapter
+}
+
+fun RecyclerView.bindStaggeredGridLayout(adapter: RecyclerView.Adapter<*>, spanCount: Int = 2, display: Display = Display.VERTICAL) {
+    if (display == Display.VERTICAL) {
+        this.layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+    } else {
+        this.layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.HORIZONTAL)
+    }
+    this.adapter = adapter
+}
